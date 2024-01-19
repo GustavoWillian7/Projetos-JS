@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" href="src/favicons/favicon-16x16.png" type="image/x-icon">
+    <title>Pokémon Info Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Pokémon Info Generator</h1>
+            <p class="pokemon__name" id="info">Pokemon Name</p>
+            <p class="pokemon__number" id="info">Pokemon ID</p>
+            <p class="pokemon__height" id="info">Pokemon Height</p>
+            <p class="pokemon__weight" id="info">Pokemon Weight</p>
+            <p class="pokemon__types" id="info">Pokemon Types</p>
+            <p class="pokemon__ability" id="info">Pokemon Ability</p>
+        <form class="form">
+            <input 
+            type="text" 
+            class="input__search"
+            id="input__search"
+            placeholder="Choose a Pokémon by name or ID"
+            required
+            />
+        </form>
+    </div>
+    <script src="src/script/script.js"></script>
+</body>
+</html>

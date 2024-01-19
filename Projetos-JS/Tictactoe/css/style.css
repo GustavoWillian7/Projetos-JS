@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, rgba(90, 0, 245, 1) 0%, rgba(0, 20, 100, 1) 100%);
+}
+
+/* Tabuleiro */
+.tabuleiro {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.tabuleiro.x .quadrado:not(.x):not(.bolinha):hover::after,
+.tabuleiro.x .quadrado:not(.x):not(.bolinha):hover::before,
+.tabuleiro.bolinha .quadrado:not(.x):not(.bolinha):hover::after,
+.tabuleiro.bolinha .quadrado:not(.x):not(.bolinha):hover::before {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Quadrados do tabuleiro */
+.quadrado {
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.quadrado.x, .quadrado.bolinha {
+    cursor: not-allowed;
+}
+
+.quadrado:nth-child(1),
+.quadrado:nth-child(2),
+.quadrado:nth-child(3) {
+    border-top: none;
+}
+
+.quadrado:nth-child(1),
+.quadrado:nth-child(4),
+.quadrado:nth-child(7) {
+    border-left: none;
+}
+
+.quadrado:nth-child(3),
+.quadrado:nth-child(6),
+.quadrado:nth-child(9) {
+    border-right: none;
+}
+
+.quadrado:nth-child(7),
+.quadrado:nth-child(8),
+.quadrado:nth-child(9) {
+    border-bottom: none;
+}
+
+/* X */
+.quadrado.x::before,
+.quadrado.x::after,
+.tabuleiro.x .quadrado:not(.x):not(.bolinha):hover::after,
+.tabuleiro.x .quadrado:not(.x):not(.bolinha):hover::before {
+    content: "";
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background: white;
+    position: absolute;
+}
+
+.quadrado.x::before,
+.tabuleiro.x .quadrado:hover::before {
+    transform: rotate(45deg);
+}
+
+.quadrado.x::after,
+.tabuleiro.x .quadrado:hover::after {
+    transform: rotate(-45deg);
+}
+
+/* O */
+.quadrado.bolinha::before,
+.quadrado.bolinha::after,
+.tabuleiro.bolinha .quadrado:not(.x):not(.bolinha):hover::after,
+.tabuleiro.bolinha .quadrado:not(.x):not(.bolinha):hover::before {
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Mensagem de vencedor */
+.vencedor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+}
+
+.botao-vencedor {
+    font-size: 2.5rem;
+    background-color: rgba(90, 0, 245, 1);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-top: 16px;
+    color: white;
+}
+
+.botao-vencedor:hover {
+    color: rgba(90, 0, 245, 1);
+    background-color: white;
+}
+
+.texto-vencedor {
+    color: white;
+    font-size: 5rem;
+}
+
+.mostrar-mensagem-vencedor {
+    display: flex;
+}
